@@ -2,17 +2,16 @@
 
 namespace Codeception\Extension;
 
-use Symfony\Component\EventDispatcher\Event;
+use PHPUnit\Framework\ExpectationFailedException;
+use Symfony\Contracts\EventDispatcher\Event;
 use Codeception\Event\FailEvent;
 use Codeception\Event\StepEvent;
 use Codeception\Event\SuiteEvent;
 use Codeception\Event\TestEvent;
 use Codeception\Events;
 use Codeception\Extension;
-use Codeception\TestCase;
-use Codeception\Platform\Extension as BaseExtension;
 
-class TeamCity extends BaseExtension
+class TeamCity extends Extension
 {
 	const MESSAGE_SUITE_STARTED = 'testSuiteStarted';
 	const MESSAGE_SUITE_FINISHED = 'testSuiteFinished';
@@ -34,8 +33,8 @@ class TeamCity extends BaseExtension
 		Events::TEST_END => 'onEnd',
 	];
 
-	public function _initialize()
-	{
+	public function _initialize(): void
+    {
 		$this->options['silent'] = !$this->isCI();
 	}
 
@@ -69,7 +68,7 @@ class TeamCity extends BaseExtension
 			'message' => $exception->getMessage(),
 			'details' => $exception->getTraceAsString(),
 		];
-		if ($exception instanceof \PHPUnit_Framework_ExpectationFailedException) {
+		if ($exception instanceof ExpectationFailedException) {
 			$comparisonFailure = $exception->getComparisonFailure();
 			if ($comparisonFailure !== null) {
 				$params += [
@@ -135,9 +134,10 @@ class TeamCity extends BaseExtension
 				: get_class($test) . ":{$test->getName(false)}";
 		} elseif ($e instanceof SuiteEvent) {
 			return $e->getSuite()->getName();
-		} else {
+		} else if (method_exists($e, 'getName')){
 			return $e->getName();
 		}
+        return '';
 	}
 
 	protected function escapeValue($string)

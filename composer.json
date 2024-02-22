@@ -1,5 +1,5 @@
 {
-  "name": "neronmoon/teamcity-codeception",
+  "name": "atg/teamcity-codeception",
   "description": "Integrating codeception builds with codeception",
   "keywords": [
     "teamcity",
@@ -7,20 +7,20 @@
     "testing",
     "test-reporting"
   ],
-  "homepage": "https://github.com/neronmoon/teamcitycodeception",
+  "homepage": "https://github.com/aksagrimada/teamcitycodeception",
   "type": "package",
   "license": "MIT",
   "authors": [
     {
-      "name": "Vitaliy Krasnoperov",
-      "email": "alistar.neron@gmail.com"
+      "name": "Adam Campbell-Smith",
+      "email": ""
     }
   ],
   "require": {
-    "php": ">=5.4"
+    "php": ">=8.0"
   },
   "require-dev": {
-    "codeception/codeception": "2.*"
+    "codeception/codeception": "5.*"
   },
   "autoload": {
     "psr-0": {
