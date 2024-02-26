@@ -6,7 +6,7 @@ Add require string to composer.json
 ```json
 ...
 "require-dev": {
-	"neronmoon/teamcity-codeception": "dev-master",
+	"atg-ltd/teamcity-codeception": "^1.0",
 }
 ...
 ```

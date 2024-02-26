@@ -1,5 +1,5 @@
 {
-  "name": "atg/teamcity-codeception",
+  "name": "atg-ltd/teamcity-codeception",
   "description": "Integrating codeception builds with codeception",
   "keywords": [
     "teamcity",
@@ -13,7 +13,7 @@
   "authors": [
     {
       "name": "Adam Campbell-Smith",
-      "email": ""
+      "email": "tools.services@atg.auto"
     }
   ],
   "require": {

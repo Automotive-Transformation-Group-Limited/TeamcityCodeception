@@ -5,7 +5,6 @@ namespace Codeception\Extension;
 use PHPUnit\Framework\ExpectationFailedException;
 use Symfony\Contracts\EventDispatcher\Event;
 use Codeception\Event\FailEvent;
-use Codeception\Event\StepEvent;
 use Codeception\Event\SuiteEvent;
 use Codeception\Event\TestEvent;
 use Codeception\Events;
